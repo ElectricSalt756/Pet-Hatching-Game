@@ -29,39 +29,81 @@ public class main{
         int mythicEggNumber=0;
 
         int money=10;
+        String buyAgain="yes";
         System.out.println("Do you want to buy, sell or hatch an egg or equip a pet");
         String input=scan.next();
         if(input.equals("buy")){
-            for(int e=0;e<6;e++){
-                System.out.println(eggs[e]+": $"+eggsCost[e]);
+            while(buyAgain.equals("yes")){
+                for(int e=0;e<6;e++){
+                    System.out.println(eggs[e]+": $"+eggsCost[e]);
+                }
+                System.out.println("What egg do you want to buy?");
+                System.out.println("You have $"+money);
+                input=scan.next();
+                if(input.equals("common")){
+                    if(money<eggsCost[0]){
+                        System.out.println("You don't have enough money to buy a common egg.");
+                    }
+                    else{
+                        commonEggNumber=commonEggNumber+1;
+                        money=money-eggsCost[0];
+                    }
+                }
+                else if(input.equals("uncommon")){
+                    if(money<eggsCost[1]){
+                        System.out.println("You don't have enough money to buy a uncommon egg.");
+                    }
+                    else{
+                        uncommonEggNumber=uncommonEggNumber+1;
+                        money=money-eggsCost[1];
+                    }
+                }
+                else if(input.equals("rare")){
+                    if(money<eggsCost[2]){
+                        System.out.println("You don't have enough money to buy a rare egg.");
+                    }
+                    else{
+                        rareEggNumber=rareEggNumber+1;
+                        money=money-eggsCost[2];
+                    }
+                }
+                else if(input.equals("epic")){
+                    if(money<eggsCost[3]){
+                        System.out.println("You don't have enough money to buy a epic egg.");
+                    }
+                    else{
+                        epicEggNumber=epicEggNumber+1;
+                        money=money-eggsCost[3];
+                    }
+                }
+                else if(input.equals("legendary")){
+                    if(money<eggsCost[4]){
+                        System.out.println("You don't have enough money to buy a legendary egg.");
+                    }
+                    else{
+                        legendaryEggNumber=legendaryEggNumber+1;
+                        money=money-eggsCost[4];
+                    }
+                }
+                else if(input.equals("mythic")){
+                    if(money<eggsCost[5]){
+                        System.out.println("You don't have enough money to buy a mythic egg.");
+                    }
+                    else{
+                        mythicEggNumber=mythicEggNumber+1;
+                        money=money-eggsCost[5];
+                    }
+                }
+                System.out.println("Common Eggs:"+commonEggNumber);
+                System.out.println("Uncommon Eggs:"+uncommonEggNumber);
+                System.out.println("Rare Eggs:"+rareEggNumber);
+                System.out.println("Epic Eggs:"+epicEggNumber);
+                System.out.println("Legendary Eggs:"+legendaryEggNumber);
+                System.out.println("Mythic Eggs:"+mythicEggNumber);
+
+                System.out.println("Do you want to buy another egg?");
+                buyAgain=scan.next();
             }
-            System.out.println("What egg do you want to buy?");
-            System.out.println("You have $"+money);
-            String bought=scan.next();
-            if(input.equals("common")){
-                commonEggNumber=commonEggNumber+1;
-            }
-            if(input.equals("uncommon")){
-                uncommonEggNumber=uncommonEggNumber+1;
-            }
-            if(input.equals("rare")){
-                rareEggNumber=rareEggNumber+1;
-            }
-            if(input.equals("epic")){
-                epicEggNumber=epicEggNumber+1;
-            }
-            if(input.equals("legendary")){
-                legendaryEggNumber=legendaryEggNumber+1;
-            }
-            if(input.equals("mythic")){
-                mythicEggNumber=mythicEggNumber+1;
-            }
-            System.out.println(commonEggNumber);
-            System.out.println(uncommonEggNumber);
-            System.out.println(rareEggNumber);
-            System.out.println(epicEggNumber);
-            System.out.println(legendaryEggNumber);
-            System.out.println(mythicEggNumber);
         }
     }
 }
