@@ -113,6 +113,9 @@ public class main{
                     buyAgain=scan.next();
                 }
             }
+            if(input.equals("hatch")){
+                
+            }
         }
     }
 }
